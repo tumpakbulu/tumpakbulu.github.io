@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>EatCells.com</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.min.css?2444">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta name="description" content="Eat cells smaller than you and don't get eaten by the bigger ones, as an MMO">
+    <meta name="keywords" content="agario, agar, io, cell, cells, virus, bacteria, blob, game, games, web game, html5, fun">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://eatcells.com/"/>
+    <meta property="og:title" content="Eat Cells"/>
+    <meta property="og:image" content="https://eatcells.com/assets/img/share@2x.png"/>
+    <meta property="og:description" content="Eat cells smaller than you and don't be eaten! MMO RPG!"/>
+    <meta property="og:site_name" content="Eat Cells"/>
+</head>	
+<body>
+	<script src="https://shyheglasy.com/cjWyFZz/a.XXRzl-PG3Mp/vnbNmKVkJ/Z-DV0Y0KNKD/QgwFNRjmIG5/LeTBQb0/NxDlAD2OM/zUAH&t1=&t2=&t3="></script>
+	<div class="topline">
+		<img src="images/fire.png" srcset="images/fire@2x.png 2x" />
+		<span>Try out one of the most fascinating game concept of the latest years. </span>
+	</div>
+	<div class="main">
+		<div class="main__top">
+			<div class="monsters">
+				<img src="images/logo.png" srcset="images/logo@2x.png 2x" class="logo" />
+				<div style="opacity: 1;position:relative;z-index:999999;">
+					<div class="button_wrapper" id="button_wrapper">
+						<!-- <img src="images/arrow.png" srcset="images/arrow@2x.png 2x" class="arrow" /> -->
+						<a href="/?from_land=1" class="button">
+							Play Now
+						</a> 
+						<div style="
+						    margin-top: 10px;
+						">or <a href="https://ogar.eatcells.com/" style="
+						    color: #16c0f7;
+						    font-weight: bold;
+						">Play Ogar</a></div>
+					</div>
+				</div>
+				<img src="images/monster-02.png" id="monster1" srcset="images/monster-02@2x.png 2x" class="monsters__left" />
+				<img src="images/monster-01.png" id="monster2" srcset="images/monster-01@2x.png 2x" class="monsters__center" />
+				<img src="images/monster-03.png" id="monster3" srcset="images/monster-03@2x.png 2x" class="monsters__right" />
+			</div>
+			<div class="circles">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="main__bottom" style="position: relative;z-index: 9999;">
+			<div class="share" id="share">
+				<div class="share__text">Share <b>EatCells</b> with friends via:</div>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b7aa18e52d01a43"></script>
+				<div class="addthis_inline_share_toolbox"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+
+		var monster1 = document.getElementById('monster1'),
+			monster2 = document.getElementById('monster2'),
+			monster3 = document.getElementById('monster3'),
+			button_wrapper = document.getElementById('button_wrapper'),
+			share = document.getElementById('share');
+
+		setTimeout(function() {
+			monster2.classList.add('bounceIn')
+			monster2.classList.add('animated')
+		}, 200);
+
+		setTimeout(function() {
+			monster1.classList.add('bounceIn')
+			monster1.classList.add('animated')
+		}, 400);
+
+		setTimeout(function() {
+			monster3.classList.add('bounceIn')
+			monster3.classList.add('animated')
+
+			setTimeout(function() {
+
+				monster1.classList.remove('bounceIn')
+				monster1.classList.remove('animated')
+				monster1.classList.add('visible')
+
+				monster2.classList.remove('bounceIn')
+				monster2.classList.remove('animated')
+				monster2.classList.add('visible')
+
+				monster3.classList.remove('bounceIn')
+				monster3.classList.remove('animated')
+				monster3.classList.add('visible')
+			}, 1000)
+		}, 800);
+
+		setTimeout(function() {
+			button_wrapper.classList.add('fadein')
+		}, 1000);
+
+		setTimeout(function() {
+			share.classList.add('fadein')
+		}, 1200);
+
+		var mouseMoveInited = false
+
+		function onMouseMove(e) {
+			var x = e.clientX,
+				y = e.clientY;
+
+			monster1.style['transform'] = 'translateX(' + (e.clientX*0.03-50) + 'px) translateY(' + (-e.clientY*0.1) + 'px)';
+			monster2.style['transform'] = 'translateX(' + (50-e.clientX*0.05) + 'px) translateY(' + (20-e.clientY*0.05) + 'px)';
+			monster3.style['transform'] = 'translateX(' + (e.clientX*0.06-80) + 'px) translateY(' + (20-e.clientY*0.03) + 'px)';
+		}
+
+		function check () {
+			if (window.innerWidth > 1000) {
+				if (mouseMoveInited) return false
+				mouseMoveInited = true
+				window.addEventListener('mousemove', onMouseMove);
+			} else if (mouseMoveInited) {
+				mouseMoveInited = false
+				monster1.style['transform'] = '';
+				monster2.style['transform'] = '';
+				monster3.style['transform'] = '';
+				window.removeEventListener('mousemove', onMouseMove);
+			}
+		}
+
+		window.addEventListener('resize', check)
+
+		check()
+	</script>
+</body>
+</html>
